@@ -1,0 +1,29 @@
+<%= stylesheet_link_tag "form", "data-turbo-track": "reload" %>
+<%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+<%= stylesheet_link_tag "categories", "data-turbo-track": "reload" %>
+
+<header class="form_header">
+  <a href="/">
+    <img src="/arr.png" alt="back to home page" />
+  </a>
+  <h2>My Categories</h2>
+  <%= form_tag destroy_user_session_path, method: :delete, class: 'logout' do %>
+    <%= submit_tag "Sign Out" %>
+  <% end %>
+</header>
+
+<section>
+  <% @categories.each do |category| %>
+    <a class="category" href=<%= "/users/#{@user_id}/categories/#{category[:category].id}"%>>
+      <div class="img_container">
+        <img src=<%= category[:category].icon %> alt=<%= category[:category].name %> />
+      </div>
+      <div class="category_info">
+        <h3><%= category[:category].name %><h3>
+        <p>Total amount: $<%= category[:total_amount] %></p>
+      </div>
+    </a>
+  <% end %>
+</section>
+
+<a class="new_category" href="/users/categories/new">Add a new category</a>

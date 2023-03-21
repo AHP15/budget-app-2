@@ -1,0 +1,22 @@
+<%= stylesheet_link_tag "form", "data-turbo-track": "reload" %>
+<%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+<header class="form_header">
+  <a href="/">
+    <img src="/arr.png" alt="back to home page" />
+  </a>
+  <h2>Transactions</h2>
+  <%= form_tag destroy_user_session_path, method: :delete, class: 'logout' do %>
+    <%= submit_tag "Sign Out" %>
+  <% end %>
+</header>
+
+<section>
+  <% @group_transactions.each do |group_tran| %>
+    <a href="#" class="transaction">
+      <h3><%= group_tran.transaction_info.name %></h3>
+      <p>Amount: $<%= group_tran.transaction_info.amount %></p>
+    </a>
+  <% end %>
+</section>
+<a class="new_category" href="/users/transactions/new">Add a new transaction</a>
