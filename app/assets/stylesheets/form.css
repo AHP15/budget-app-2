@@ -1,0 +1,63 @@
+.form_header {
+  background-color: #3778c2;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 15px;
+  padding-top: 20px;
+}
+
+a {
+  text-align: center;
+  display: block;
+  color: gray;
+  text-decoration: none;
+}
+
+.form_header a {
+  display: block;
+  position: absolute;
+  left: 10px;
+}
+
+form {
+  width: 100%;
+  background-color: white;
+  margin: 40px auto;
+  max-width: 500px;
+  border: 2px solid lightgrey;
+}
+
+form input {
+  width: 100%;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid lightgrey;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+form em {
+  margin-left: 10px;
+}
+
+.actions input {
+  background-color: #3778c2;
+  cursor: pointer;
+  color: white;
+  margin: 5px;
+  width: calc(100% - 10px);
+}
+
+select {
+  width: 100%;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid lightgrey;
+  padding: 10px;
+  margin-bottom: 5px;
+}

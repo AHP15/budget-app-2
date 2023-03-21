@@ -1,0 +1,34 @@
+<%= stylesheet_link_tag "form", "data-turbo-track": "reload" %>
+<%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+<header class="form_header">
+  <a href="/">
+    <img src="/arr.png" alt="back to home page" />
+  </a>
+  <h2>Add a new transaction</h2>
+  <%= form_tag destroy_user_session_path, method: :delete, class: 'logout' do %>
+    <%= submit_tag "Sign Out" %>
+  <% end %>
+</header>
+
+<%= form_with model: @transaction_info, url: "/users/transactions/create", scope: :transaction_info do |f|%>
+
+<div>
+    <%= f.label :name, hidden: true %><br>
+    <%= f.text_field :name, placeholder: 'Transaction Name' %>
+  </div>
+
+  <div>
+    <%= f.label :amount, hidden: true %><br>
+    <%= f.number_field :amount, placeholder: 'Amount' %>
+  </div>
+
+  <div>
+    <%= f.label :category, hidden: true %><br>
+    <%= f.select :category, @groups, selected: @groups[0][1] %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Save" %>
+  </div>
+<% end %>
